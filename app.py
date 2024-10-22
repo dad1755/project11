@@ -59,7 +59,7 @@ if uploaded_file is not None:
     # Use OCR to extract text from the image
     extracted_text = pytesseract.image_to_string(image)
 
-    st.write(extracted_text)  # Display the extracted text
+    #st.write(extracted_text)  # Display the extracted text
 
     # Prepare messages for token count
     messages = [
