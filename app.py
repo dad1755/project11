@@ -1,20 +1,22 @@
 import streamlit as st
 from PIL import Image
 import pytesseract  # Importing pytesseract for OCR
+#import base64
 from io import BytesIO
 import openai
 import tiktoken  # Importing the tiktoken library
 
 # Set up OpenAI API key from st.secrets
 openai.api_key = st.secrets["openai"]["api_key"]
-
 # Function to get response from OpenAI based on the extracted text
 def get_text_response(extracted_text):
     try:
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
+                #{"role": "user", "content": "Provide answer. There are objective, and subjective. For subjective simple word conversational"},
                 {"role": "user", "content": "what is the text in the picture"},
+                #{"role": "user", "content": "Please provide the answer. If subjective, provide simple conversational answer."},
                 {
                     "role": "user",
                     "content": extracted_text,
@@ -34,10 +36,10 @@ def calculate_token_count(messages):
     return token_count
 
 # Streamlit App Layout
-st.set_page_config(page_title="exam paper extractor", layout="centered")
+st.set_page_config(page_title="Dad24", layout="centered")
 
 # Title and Description
-st.title("Exam Paper Extractor")
+st.title("exam paper extractor")
 st.write("Upload an image to analyze.")
 
 # File uploader
@@ -51,7 +53,7 @@ if uploaded_file is not None:
     max_size = (900, 900)  # Set maximum width and height to reduce data size
     image.thumbnail(max_size)
 
-    # Display the image
+   # Display the image
     st.image(image, caption='Uploaded Image', width=600)  # Width can be adjusted
 
     # Use OCR to extract text from the image
