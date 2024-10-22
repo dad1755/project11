@@ -14,8 +14,8 @@ def get_text_response(extracted_text):
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                #{"role": "user", "content": "Provide answer. There are objective, and subjective. For subjective simple word conversational"},
-                {"role": "user", "content": "what is the text in the picture"},
+                {"role": "user", "content": "Provide answer. There are objective, and subjective. For subjective simple word conversational"},
+                #{"role": "user", "content": "what is the text in the picture"},
                 #{"role": "user", "content": "Please provide the answer. If subjective, provide simple conversational answer."},
                 {
                     "role": "user",
