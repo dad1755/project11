@@ -1,0 +1,5 @@
+streamlit==1.26.0  # Or the latest compatible version
+Pillow==9.2.0  # For image handling (PIL)
+pytesseract==0.3.10  # For OCR (Optical Character Recognition)
+openai==0.27.8  # For interacting with OpenAI API
+tiktoken==0.4.0  # For token handling (used to calculate token count)
